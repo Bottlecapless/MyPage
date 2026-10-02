@@ -1,66 +1,548 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" data-lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>王英枭 - Wang Yingxiao</title>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      color: #333;
-      background-color: #fafafa;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #2c3e50;
-    }
-    .section {
-      background: white;
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom: 30px;
-    }
-    .email {
-      font-weight: bold;
-      color: #1a73e8;
-      text-decoration: none;
-    }
-    .email:hover {
-      text-decoration: underline;
-    }
-    footer {
-      text-align: center;
-      color: #777;
-      font-size: 0.9em;
-      margin-top: 20px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wang YingXiao · 王英枭</title>
+<meta name="description" content="Wang YingXiao (王英枭) — Ph.D. student in Computer and Information Engineering at CUHK-Shenzhen. Deep Learning, Training Dynamics, Optimization, Power Systems." />
+<meta name="author" content="Wang YingXiao" />
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<script>
+  (function () {
+    var root = document.documentElement;
+    var savedTheme = null, savedLang = null;
+    try { savedTheme = localStorage.getItem('theme'); savedLang = localStorage.getItem('lang.v2'); } catch (e) {}
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var lang = savedLang === 'zh' ? 'zh' : 'en';
+    root.setAttribute('data-theme', savedTheme || (prefersDark ? 'dark' : 'light'));
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang === 'zh' ? 'zh-CN' : 'en');
+    root.classList.add('js');
+  })();
+</script>
 </head>
 <body>
-  <h1>王英枭 / Wang Yingxiao</h1>
+<a class="skip-link" href="#education"><span class="l-zh">跳到正文</span><span class="l-en">Skip to content</span></a>
 
-  <!-- 中文版 -->
-  <div class="section">
-    <h2>自我介绍（中文）</h2>
-    <p>你好！这里是王英枭，目前就读于香港中文大学（深圳）Computer and Information Engineering博士项目，接受中国国家人工智能学院（深圳河套学院-人工智能理论与系统中心）博士项目联合培养和深圳市大数据研究院（网络系统优化研究中心）博士奖学金资助。</p>
-    <p>我的邮箱是：<a href="mailto:yingxiaowang@link.cuhk.edu.cn" class="email">yingxiaowang@link.cuhk.edu.cn</a></p>
-  </div>
+<div class="layout">
 
-  <!-- 英文版 -->
-  <div class="section">
-    <h2>About Me (English)</h2>
-    <p>Hello! This is Wang Yingxiao. I am currently a Ph.D. student in the Computer and Information Engineering program at The Chinese University of Hong Kong, Shenzhen, jointly supervised by the National Institute of Artificial Intelligence (Shenzhen Loop Area Institute – Center for AI Theory and Systems) and supported by a Ph.D. scholarship from the Shenzhen Institute of Big Data (Network Systems Optimization Research Center).</p>
-    <p>My email is: <a href="mailto:yingxiaowang@link.cuhk.edu.cn" class="email">yingxiaowang@link.cuhk.edu.cn</a></p>
-  </div>
+  <aside class="sidebar">
+    <div class="sidebar__top">
+      <button class="avatar" type="button" id="avatarBtn" aria-label="View photo" aria-haspopup="dialog">
+        <img id="avatar" src="assets/img/avatar.jpg" alt="Wang YingXiao 王英枭"
+             onerror="this.onerror=null;this.src='assets/img/avatar-fallback.svg';" />
+      </button>
 
-  <footer>
-    © 2024 Wang Yingxiao. All rights reserved.
-  </footer>
+      <div class="identity">
+        <h1 class="identity__name">王英枭</h1>
+        <p class="identity__name-en">Wang YingXiao</p>
+        <p class="identity__role"><span class="l-zh">博士研究生</span><span class="l-en">Ph.D. Student</span></p>
+        <p class="identity__affil">
+          <span class="l-zh">计算机与信息工程<br />香港中文大学（深圳）<br />&amp;<br />人工智能理论与系统中心<br />深圳河套学院</span>
+          <span class="l-en">Computer &amp; Information Engineering<br />CUHK&nbsp;·&nbsp;Shenzhen<br />&amp;<br />Center for AI Theory and Systems<br />SLAI</span>
+        </p>
+      </div>
+
+      <nav class="nav" aria-label="Section navigation">
+        <a href="#home" class="is-active">Home</a>
+        <a href="#education">Education</a>
+        <a href="#publications">Publications</a>
+        <a href="#experience">Internship</a>
+        <a href="#projects">Projects</a>
+        <a href="#visits">Visits</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="sidebar__foot">
+      <div class="sidebar__controls">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-switch__btn" data-lang-btn="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-switch__btn" data-lang-btn="zh" aria-pressed="false">中文</button>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false">
+          <span class="theme-toggle__icon" aria-hidden="true">
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.5 14.6A8.6 8.6 0 1 1 10.3 3.4a6.9 6.9 0 0 0 10.2 11.2z" />
+            </svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4.1" />
+              <path d="M12 2.6v2.2M12 19.2v2.2M4.4 4.4l1.6 1.6M18 18l1.6 1.6M2.6 12h2.2M19.2 12h2.2M4.4 19.6L6 18M18 6l1.6-1.6" />
+            </svg>
+          </span>
+          <span class="theme-toggle__label">Dark</span>
+        </button>
+      </div>
+
+      <p class="sidebar__copy">© 2026 王英枭 Wang YingXiao<br />All rights reserved.</p>
+
+      <div class="socials">
+        <!-- GitHub icon kept for later use
+        <a href="https://github.com/Bottlecapless" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.34 9.34 0 0 1 2.5-.34c.85 0 1.71.12 2.5.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.59.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z" />
+          </svg>
+        </a>
+        -->
+        <a href="mailto:yingxiaowang@slai.edu.cn" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2.4" />
+            <path d="m3.6 7 8.4 6 8.4-6" />
+          </svg>
+        </a>
+        <a href="#home" aria-label="Back to top">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5" /><path d="m5.5 11.5 6.5-6.5 6.5 6.5" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <section class="hero" id="home">
+      <div class="wrap">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow">
+              <span class="l-zh">博士研究生 · 香港中文大学（深圳）· 深圳河套学院</span>
+              <span class="l-en">Ph.D. Student · CUHK-Shenzhen · SLAI</span>
+            </p>
+            <h2 class="hero__title">Making neural network training <em>tractable</em>.</h2>
+            <p class="hero__lede">
+              <span class="l-zh">我是王英枭（Wang YingXiao），香港中文大学（深圳）计算机与信息工程博士生，接受中国国家人工智能学院 · 深圳河套学院联合培养，受深圳市大数据研究院博士奖学金资助。我希望解释一些语言/分类模型训练中的一些“Why”。右边是正在陪伴我的小猫欧拉(Orla)。</span>
+              <span class="l-en">I am Wang YingXiao, a Ph.D. student in Computer and Information Engineering at The Chinese University of Hong Kong, Shenzhen, jointly trained by the National Institute of Artificial Intelligence · Shenzhen Loop Area Institute and supported by a Ph.D. scholarship from the Shenzhen Research Institute of Big Data. I hope to explain some of the “whys” in language / classification model training. On the right is Orla, the cat keeping me company.</span>
+            </p>
+            <p class="hero__keywords">Deep Learning · Training Dynamics · Optimization · Power Systems</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="mailto:yingxiaowang@slai.edu.cn">
+                <span class="l-zh">邮箱联系</span><span class="l-en">Email me</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+              </a>
+              <a class="btn btn--ghost" href="#education"><span class="l-zh">了解更多</span><span class="l-en">Read more</span></a>
+            </div>
+          </div>
+
+          <figure class="figure">
+            <img class="figure__photo" src="assets/img/orla.jpg" alt="Orla, a grey and white cat" />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <span class="section__index">01 · Education</span>
+          <h2 class="section__title">Education</h2>
+        </header>
+
+        <h3 class="section__sub reveal">Supervisors</h3>
+        <ol class="timeline">
+          <li class="tl-item tl-item--plain reveal">
+            <h4 class="tl-item__title"><a href="https://alexwuh.github.io/" target="_blank" rel="noopener"><span class="l-zh">吴江华博士</span><span class="l-en">Dr. JiangHua Wu</span></a></h4>
+            <p class="tl-item__org"><span class="l-zh">深圳市大数据研究院</span><span class="l-en">Shenzhen Research Institute of Big Data</span></p>
+          </li>
+          <li class="tl-item tl-item--plain reveal">
+            <h4 class="tl-item__title"><a href="https://ruoyus.github.io/" target="_blank" rel="noopener"><span class="l-zh">孙若愚教授</span><span class="l-en">Prof. RuoYu Sun</span></a></h4>
+            <p class="tl-item__org"><span class="l-zh">深圳河套学院，香港中文大学（深圳）</span><span class="l-en">Shenzhen Loop Area Institute; The Chinese University of Hong Kong, Shenzhen</span></p>
+          </li>
+          <li class="tl-item tl-item--plain reveal">
+            <h4 class="tl-item__title"><a href="https://sse.cuhk.edu.cn/en/faculty/leishunbo" target="_blank" rel="noopener"><span class="l-zh">雷顺波教授</span><span class="l-en">Prof. ShunBo Lei</span></a></h4>
+            <p class="tl-item__org"><span class="l-zh">香港中文大学（深圳）</span><span class="l-en">The Chinese University of Hong Kong, Shenzhen</span></p>
+          </li>
+        </ol>
+
+        <h3 class="section__sub section__sub--gap reveal">Institutions</h3>
+        <ol class="timeline">
+          <li class="tl-item reveal">
+            <p class="tl-item__date">2025.09 – <span class="l-zh">至今</span><span class="l-en">Present</span></p>
+            <h4 class="tl-item__title">
+              <span class="l-zh">香港中文大学（深圳）</span>
+              <span class="l-en">The Chinese University of Hong Kong, Shenzhen</span>
+            </h4>
+            <p class="tl-item__org">
+              <span class="l-zh">理工学院，计算机与信息工程博士项目</span>
+              <span class="l-en">Ph.D. Program in Computer and Information Engineering, School of Science and Engineering</span>
+            </p>
+          </li>
+
+          <li class="tl-item reveal">
+            <p class="tl-item__date">2025.09 – <span class="l-zh">至今</span><span class="l-en">Present</span></p>
+            <h4 class="tl-item__title">
+              <span class="l-zh">中国国家人工智能学院 · 深圳河套学院</span>
+              <span class="l-en">National Institute of Artificial Intelligence · Shenzhen Loop Area Institute</span>
+            </h4>
+            <p class="tl-item__org">
+              <span class="l-zh">人工智能理论及系统中心</span>
+              <span class="l-en">Center for AI Theory and Systems</span>
+            </p>
+          </li>
+
+          <li class="tl-item reveal">
+            <p class="tl-item__date">2024.01 – 2024.05</p>
+            <h4 class="tl-item__title">
+              <span class="l-zh">加州大学伯克利分校</span>
+              <span class="l-en">University of California, Berkeley</span>
+            </h4>
+            <p class="tl-item__org">
+              <span class="l-zh">Berkeley International Students Program，工业工程与运筹学系</span>
+              <span class="l-en">Berkeley International Students Program, Department of Industrial Engineering and Operations Research</span>
+            </p>
+          </li>
+
+          <li class="tl-item reveal">
+            <p class="tl-item__date">2021.09 – 2025.07</p>
+            <h4 class="tl-item__title">
+              <span class="l-zh">南京大学</span>
+              <span class="l-en">Nanjing University</span>
+            </h4>
+            <p class="tl-item__org">
+              <span class="l-zh">数学学院，国家拔尖计划 · 信息与计算科学</span>
+              <span class="l-en">School of Mathematics, National Honors Program · Information and Computational Science</span>
+            </p>
+            <p class="tl-item__desc">
+              <span class="l-zh">理学学士</span>
+              <span class="l-en">B.Sc.</span>
+            </p>
+          </li>
+        </ol>
+
+        <h3 class="section__sub section__sub--gap reveal">Teaching Assistant</h3>
+        <ol class="timeline">
+          <li class="tl-item reveal">
+            <p class="tl-item__date">26 Fall in SLAI</p>
+            <h4 class="tl-item__title">Optimization Theory and Algorithms</h4>
+            <p class="tl-item__org">MF2503 · Prof. <a href="https://tomluo123.github.io/" target="_blank" rel="noopener">Zhi-Quan Luo</a> and Prof. <a href="https://chcoliang.github.io/" target="_blank" rel="noopener">CongLiang Chen</a></p>
+          </li>
+          <li class="tl-item reveal">
+            <p class="tl-item__date">26 Fall in CUHKSZ</p>
+            <h4 class="tl-item__title">Selected Topics in Data and Decision Analytics I</h4>
+            <p class="tl-item__org">DDA6201 · Prof. <a href="https://tomluo123.github.io/" target="_blank" rel="noopener">Zhi-Quan Luo</a></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="publications">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <span class="section__index">02 · Publications</span>
+          <h2 class="section__title">Publications</h2>
+        </header>
+
+        <div class="publications">
+          <div class="pub-group reveal">
+            <p class="pub-group__label"><span class="l-zh">准备中</span><span class="l-en">In Preparation</span></p>
+            <ol class="pub-list">
+              <li class="pub-item">
+                <p class="pub-authors"><strong>Wang, Y.</strong><sup>†</sup>, Zhou, Z.<sup>†</sup>, Chen, Y., Chen, C., Wang, A., Liu, Y., Lei, S., Sun, R., Wu, J.<sup>*</sup></p>
+                <p class="pub-title">The Learning Rate Is Not Free: A Geometric Invariant in Neural Networks</p>
+              </li>
+              <li class="pub-item">
+                <p class="pub-authors">Zhou, Z.<sup>†</sup>, <strong>Wang, Y.</strong><sup>†</sup>, Jiang, H., Wang, A., Wu, J.<sup>*</sup></p>
+                <p class="pub-title">Enhanced Structure Detection via Graph Conductance in Mixed-Integer Linear Programs</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="pub-group reveal">
+            <p class="pub-group__label"><span class="l-zh">期刊论文</span><span class="l-en">Journal Papers</span></p>
+            <ol class="pub-list">
+              <li class="pub-item">
+                <p class="pub-authors">Liu, Y., Tang, Z., <strong>Wang, Y.</strong>, Lin, W., Wu, J.<sup>*</sup></p>
+                <p class="pub-title">Uncertainty-Resilient Hierarchical Optimization for Cross-Regional Hydrogen Energy Storage Planning and Scheduling</p>
+                <p class="pub-venue">Journal of Energy Storage, 125, 116669</p>
+              </li>
+              <li class="pub-item">
+                <p class="pub-authors">Xiong, J., Huang, Y., <strong>Wang, Y.</strong>, Yang, L., Wu, J., Lei, S., &amp; Wang, A.</p>
+                <p class="pub-title">Successive Fixing for Large-Scale SCUC Using First-Order Methods</p>
+                <p class="pub-venue">Electric Power Systems Research, 261, 113414 (2026)</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="pub-group reveal">
+            <p class="pub-group__label"><span class="l-zh">会议论文</span><span class="l-en">Conference Papers</span></p>
+            <ol class="pub-list">
+              <li class="pub-item">
+                <p class="pub-authors"><strong>Wang, Y.</strong>, Ou, P., Wu, J.</p>
+                <p class="pub-title">A Novel Price-Oriented Supply-Demand Interaction Scheduling Model Optimizing Virtual Power Plant Operations</p>
+                <p class="pub-venue">IEEE PES 16th Asia-Pacific Power and Energy Engineering Conference (APPEEC 2024)</p>
+              </li>
+              <li class="pub-item">
+                <p class="pub-authors">Ou, P., <strong>Wang, Y.</strong>, Lin, W., Wu, J.</p>
+                <p class="pub-title">An LLM-Based Modeling and Decision Optimization for User-Centric Electric Vehicle Charging</p>
+                <p class="pub-venue">IEEE Conference on Energy Internet and Energy System Integration (EI2 2024)</p>
+              </li>
+              <li class="pub-item">
+                <p class="pub-authors">Tang, Z., <strong>Wang, Y.</strong>, Liu, Y., Wu, J.</p>
+                <p class="pub-title">Hierarchical Optimization for Cross-regional Planning and Scheduling of Hydrogen Energy Storage Systems Considering Uncertainty</p>
+                <p class="pub-venue">The Proceedings of 2024 International Conference of Electrical, Electronic and Networked Energy Systems (EENES 2024), Lecture Notes in Electrical Engineering, vol. 1317</p>
+              </li>
+              <li class="pub-item">
+                <p class="pub-authors">Zhu, Z., Zhou, Z., <strong>Wang, Y.</strong>, Liu, Y., &amp; Wu, J.</p>
+                <p class="pub-title">Temporal Decomposition with Selective Fixing and Relaxation for Fast Distributionally Robust Unit Commitment</p>
+                <p class="pub-venue">2026 IEEE 2nd International Symposium on the Application of Artificial Intelligence in Electrical Engineering (AAIEE 2026)</p>
+              </li>
+            </ol>
+          </div>
+
+          <div class="pub-group reveal">
+            <p class="pub-group__label"><span class="l-zh">预印本</span><span class="l-en">Preprints</span></p>
+            <ol class="pub-list">
+              <li class="pub-item">
+                <p class="pub-authors">Xiong, J., Yang, L., <strong>Wang, Y.</strong>, Huang, Y., Wu, J., Lei, S., &amp; Wang, A.</p>
+                <p class="pub-title">Relax-and-Cut for Temporal SCUC Decomposition</p>
+                <p class="pub-venue">arXiv:2507.20465 [math.OC] (2025)</p>
+              </li>
+            </ol>
+          </div>
+
+          <p class="pub-note reveal">
+            <sup>†</sup> Equal Contribution.
+            <sup>*</sup> Corresponding author.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <span class="section__index">03 · Internship</span>
+          <h2 class="section__title">Internship</h2>
+        </header>
+
+        <ol class="entries entries--compact">
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title">
+                <span class="l-zh">深圳市大数据研究院</span>
+                <span class="l-en">Shenzhen Research Institute of Big Data</span>
+              </h3>
+              <span class="entry__date">2024.05 – <span class="l-zh">至今</span><span class="l-en">Present</span></span>
+            </div>
+            <p class="entry__org">
+              <span class="l-zh">访问博士生</span>
+              <span class="l-en">Visiting Ph.D. Student</span>
+            </p>
+          </li>
+
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title">
+                <span class="l-zh">清大科越股份有限公司</span>
+                <span class="l-en">Qingda Keyue Co., Ltd.</span>
+              </h3>
+              <span class="entry__date">2025.06 – 2025.09</span>
+            </div>
+            <p class="entry__org">
+              <span class="l-zh">AI 支持部，实习算法工程师</span>
+              <span class="l-en">Algorithm Engineer Intern, AI Support Lab</span>
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <span class="section__index">04 · Projects</span>
+          <h2 class="section__title">Projects</h2>
+        </header>
+
+        <ol class="entries entries--compact">
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title"><span class="l-zh">SIGMA 电网智能调度优化平台</span><span class="l-en">SIGMA: Intelligent Dispatch Optimization Platform for Power Grids</span></h3>
+              <span class="entry__date">2025.08 – <span class="l-zh">至今</span><span class="l-en">Present</span></span>
+            </div>
+            <p class="entry__org"><span class="l-zh">深圳市大数据研究院</span><span class="l-en">Shenzhen Research Institute of Big Data</span></p>
+          </li>
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title"><span class="l-zh">通过时序预测加速的机组组合调度分解耦合技术</span><span class="l-en">Decomposition and Coupling for Unit Commitment Accelerated by Time-Series Forecasting</span></h3>
+              <span class="entry__date">2025.03 – <span class="l-zh">至今</span><span class="l-en">Present</span></span>
+            </div>
+            <p class="entry__org"><span class="l-zh">深圳市大数据研究院</span><span class="l-en">Shenzhen Research Institute of Big Data</span></p>
+          </li>
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title"><span class="l-zh">城市轨道交通列车运行图自动编制算法</span><span class="l-en">Automatic Scheduling Algorithm for Urban Rail Transit Operations</span></h3>
+              <span class="entry__date">2024.09 – 2026.07</span>
+            </div>
+            <p class="entry__org"><span class="l-zh">中国中车（株洲）电力机车研究所</span><span class="l-en">CRRC Zhuzhou Institute</span></p>
+          </li>
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title"><span class="l-zh">机组组合问题国产求解器专题竞赛</span><span class="l-en">Security-Constrained Unit Commitment Solver Competition</span></h3>
+              <span class="entry__date">2024.12</span>
+            </div>
+            <p class="entry__org"><span class="l-zh">工业与信息化部</span><span class="l-en">Ministry of Industry and Information Technology</span></p>
+          </li>
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title"><span class="l-zh">青岛地铁多车城轨协同再生制动项目</span><span class="l-en">Multi-Train Collaborative Intelligent Scheduling and Energy Optimization for Metro Systems</span></h3>
+              <span class="entry__date">2024.06 – 2024.08</span>
+            </div>
+            <p class="entry__org"><span class="l-zh">青岛地铁集团</span><span class="l-en">Qingdao Metro Group</span></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="visits">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <span class="section__index">05 · Visits</span>
+          <h2 class="section__title">Visits</h2>
+        </header>
+
+        <ol class="entries">
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title">AI Games and MS: Online Arrow-Debreu Market Pricing</h3>
+              <span class="entry__date">2025.03 – 2025.07</span>
+            </div>
+            <p class="entry__org">
+              <span class="l-zh">斯坦福大学 管理科学与工程系（<a href="https://web.stanford.edu/~yyye/" target="_blank" rel="noopener">叶荫宇</a> 教授）· 南京大学 工程管理学院（<a href="https://sme.nju.edu.cn/cch/list.htm" target="_blank" rel="noopener">陈彩华</a> 教授）</span>
+              <span class="l-en">Stanford University, Department of Management Science and Engineering (Prof. <a href="https://web.stanford.edu/~yyye/" target="_blank" rel="noopener">YinYu Ye</a>) · Nanjing University, School of Management and Engineering (Prof. <a href="https://sme.nju.edu.cn/cch/list.htm" target="_blank" rel="noopener">CaiHua Chen</a>)</span>
+            </p>
+            <p class="entry__desc"><span class="l-zh">中国，江苏，南京</span><span class="l-en">Nanjing, Jiangsu, China</span></p>
+          </li>
+
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title">
+                <span class="l-zh">半离散最优传输问题的高维求解</span>
+                <span class="l-en">High-Dimensional Semi-Discrete Optimal Transport Problems</span>
+              </h3>
+              <span class="entry__date">2024.01 – 2024.05</span>
+            </div>
+            <p class="entry__org">
+              <span class="l-zh">加州大学伯克利分校 工业工程与运筹学系（<a href="https://sites.google.com/site/optyingcui/" target="_blank" rel="noopener">崔莹</a> 教授）</span>
+              <span class="l-en">University of California, Berkeley, Department of Industrial Engineering and Operations Research (Prof. <a href="https://sites.google.com/site/optyingcui/" target="_blank" rel="noopener">Ying Cui</a>)</span>
+            </p>
+            <p class="entry__desc"><span class="l-zh">美国，加利福尼亚州，伯克利</span><span class="l-en">Berkeley, California, USA</span></p>
+          </li>
+
+          <li class="entry reveal">
+            <div class="entry__head">
+              <h3 class="entry__title">
+                <span class="l-zh">数据科学暑期班</span>
+                <span class="l-en">Data Science Summer School</span>
+              </h3>
+              <span class="entry__date">2024.07 – 2024.08</span>
+            </div>
+            <p class="entry__org">
+              <span class="l-zh">香港中文大学（深圳）数据科学学院</span>
+              <span class="l-en">School of Data Science, The Chinese University of Hong Kong, Shenzhen</span>
+            </p>
+            <p class="entry__desc"><span class="l-zh">中国，广东，深圳</span><span class="l-en">Shenzhen, Guangdong, China</span></p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="awards">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <span class="section__index">06 · Awards</span>
+          <h2 class="section__title">Awards</h2>
+        </header>
+
+        <ul class="awards">
+          <li class="award reveal">
+            <span class="award__text"><span class="l-zh">深圳市大数据研究院博士奖学金，金奖</span><span class="l-en">Ph.D. Scholarship (Gold Award), Shenzhen Research Institute of Big Data</span></span>
+            <span class="award__year">2025 – 2026</span>
+          </li>
+          <li class="award reveal">
+            <span class="award__text"><span class="l-zh">南京大学优秀毕业生代表</span><span class="l-en">Nanjing University Outstanding Graduate Representative</span></span>
+            <span class="award__year">2025</span>
+          </li>
+          <li class="award reveal">
+            <span class="award__text"><span class="l-zh">南京大学年度人物（0.02%）</span><span class="l-en">Nanjing University Annual Outstanding Individual (0.02%)</span></span>
+            <span class="award__year">2024</span>
+          </li>
+          <li class="award reveal">
+            <span class="award__text"><span class="l-zh">栋梁奖学金（0.1%）</span><span class="l-en">Dongliang Scholarship (0.1%)</span></span>
+            <span class="award__year">2024</span>
+          </li>
+          <li class="award reveal">
+            <span class="award__text"><span class="l-zh">人民奖学金</span><span class="l-en">People’s Scholarship</span></span>
+            <span class="award__year">2022 – 2024</span>
+          </li>
+          <li class="award reveal">
+            <span class="award__text"><span class="l-zh">歆·恺奖学金</span><span class="l-en">Xin·Kai Scholarship</span></span>
+            <span class="award__year">2023</span>
+          </li>
+          <li class="award reveal">
+            <span class="award__text"><span class="l-zh">美国大学生数学建模竞赛一等奖</span><span class="l-en">Meritorious Winner, Mathematical Contest in Modeling</span></span>
+            <span class="award__year">2023</span>
+          </li>
+          <li class="award reveal">
+            <span class="award__text"><span class="l-zh">中国大学生数学竞赛江苏省一等奖</span><span class="l-en">First Prize, Chinese Mathematics Competition</span></span>
+            <span class="award__year">2022 – 2023</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--contact" id="contact">
+      <div class="wrap">
+        <header class="section__head reveal">
+          <span class="section__index">07 · Contact</span>
+          <h2 class="section__title">Contact</h2>
+        </header>
+
+        <div class="contact contact--single reveal">
+          <div class="contact__list">
+            <div class="contact__item">
+              <a class="contact__mail" href="mailto:yingxiaowang@slai.edu.cn">yingxiaowang@slai.edu.cn</a>
+              <p class="contact__where">in Shenzhen Loop Area Institute</p>
+            </div>
+            <div class="contact__item">
+              <a class="contact__mail" href="mailto:yingxiaowang@link.cuhk.edu.cn">yingxiaowang@link.cuhk.edu.cn</a>
+              <p class="contact__where">in CUHKSZ</p>
+            </div>
+          </div>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="mailto:yingxiaowang@slai.edu.cn">
+              <span class="l-zh">发送邮件</span><span class="l-en">Send an email</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></svg>
+            </a>
+            <!-- GitHub button kept for later use
+            <a class="btn btn--ghost" href="https://github.com/Bottlecapless" target="_blank" rel="noopener">GitHub</a>
+            -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <span>© 2026 王英枭 Wang YingXiao</span>
+        <span class="footer__note"><span class="l-zh">最后更新：2026.10</span><span class="l-en">Last updated: Oct. 2026</span></span>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo" hidden>
+  <button class="lightbox__close" type="button" id="lightboxClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" /></svg>
+  </button>
+  <img class="lightbox__img" src="assets/img/avatar.jpg" alt="Wang YingXiao 王英枭" />
+</div>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>

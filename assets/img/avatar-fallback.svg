@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Wang Yingxiao">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d549a"/>
+      <stop offset="1" stop-color="#123055"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <g fill="none" stroke="#e8f0fb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+    <path d="M70 288 148 182l62 46L330 106"/>
+  </g>
+  <g fill="#f0c9a8">
+    <circle cx="148" cy="182" r="11"/>
+    <circle cx="210" cy="228" r="11"/>
+  </g>
+  <circle cx="330" cy="106" r="15" fill="#e8f0fb"/>
+  <g fill="none" stroke="#cfe0f7" stroke-opacity=".22" stroke-width="1.5" stroke-dasharray="3 10">
+    <path d="M-20 120H420M-20 200H420M-20 280H420M100 -20V420M220 -20V420M340 -20V420"/>
+  </g>
+</svg>
